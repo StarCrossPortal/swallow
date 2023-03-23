@@ -8,7 +8,7 @@
 ## 安装方法
 
 1. 一键部署控制台 ` docker-compose up -d`
-2. 浏览器打开地址:`http://xx.xx.xx.xx:1880/`
+2. 浏览器打开地址:`http://xx.xx.xx.xx:1890/`
 
 ## 使用方法
 1. 在设置中填写蜻蜓配置,蜻蜓工作流模板为:http://qingting.starcross.cn/scenario/detail?id=2054
@@ -42,4 +42,4 @@
 
 ## Stargazers over time
 
-[![Stargazers over time](https://starchart.cc/StarCrossPortal/dolphin.svg)](https://starchart.cc/StarCrossPortal/dolphin)
+[![Stargazers over time](https://starchart.cc/StarCrossPortal/swallow.svg)](https://starchart.cc/StarCrossPortal/swallow)

@@ -1,0 +1,26 @@
+
+form {
+    margin: 0.6rem auto;
+}
+
+input {
+    /*height: 100%;*/
+    width: 50%;
+}
+.tubiao{
+    width: 70%;
+}
+
+
+.logo{
+    /*height: 50%;*/
+    width: 15%;
+}
+
+.fenlei{
+    width: 35%;
+}
+
+div {
+    padding: 0.5rem 0.5rem 0.5rem;
+}

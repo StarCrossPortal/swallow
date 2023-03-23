@@ -1,0 +1,26 @@
+version: "3.2"
+services:
+  mysql:
+    image: daxia/dolphin:mysql57
+    container_name: mysql
+    network_mode: host
+    environment:
+      - MYSQL_ROOT_PASSWORD=dolphin123!
+      - TZ=Asia/Shanghai
+    restart: always
+    command:
+      --wait_timeout=31536000
+      --interactive_timeout=31536000
+      --max_connections=1000
+      --default-authentication-plugin=mysql_native_password
+  dolphin:
+    image: daxia/dolphin:latest
+    container_name: dolphin
+    network_mode: host
+    environment:
+      - TZ=Asia/Shanghai
+    restart: always
+    volumes:
+      - type: bind
+        source: "./"
+        target: "/root/code"

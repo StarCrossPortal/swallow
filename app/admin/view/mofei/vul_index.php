@@ -84,8 +84,9 @@
                                 <td>{$item['cve_id']}</td>
                                 <td>{$item['vuln_path']}</td>
                                 <td>{$item['level']}</td>
-                                <td>{$item['git_addr']}</td>
-                                <td><a class="btn btn-sm btn-light" aria-disabled="true">查看详情</a></td>
+                                <td><a href="{$item['git_addr']}" title="{$item['git_addr']}" target="_blank">{:parse_url($item['git_addr'],PHP_URL_PATH)}</a></td>
+
+                                <td><a class="btn btn-sm btn-light" href="{:URL('detail',['id'=>$item['id']])}" aria-disabled="true">查看详情</a></td>
                             </tr>
                         <?php } ?>
                         </tbody>

@@ -51,7 +51,8 @@
                     <?php foreach ($mainList as $item) { ?>
                         <tr>
                             <td>{$item['id']}</td>
-                            <td>{$item['git_addr']}</td>
+                            <td><a href="{$item['git_addr']}" title="{$item['git_addr']}" target="_blank">{:parse_url($item['git_addr'],PHP_URL_PATH)}</a></td>
+
                             <td>{$item['fortify']}</td>
                             <td>{$item['semgrep']}</td>
                             <td>{$item['webshell']}</td>

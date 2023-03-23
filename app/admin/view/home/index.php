@@ -15,9 +15,9 @@
     <div class="col-11 tuchu" style="border-radius: 5px; ">
         <div class="row" style="border-radius: 10px; margin-bottom: 20px;">
             <div class="col-12">
-                <h5 class="home_title">分类</h5>
+<!--                <h5 class="home_title">分类</h5>-->
             </div>
-            <?php foreach ($categoryList as $item) { ?>
+            <?php foreach ([] as $item) { ?>
                 <div class="col-2" >
                     <div style="border-radius: 10px;padding:10px;margin-bottom:20px;border: 1px solid #eee;height: 155px; ">
                         <p>{$item['name']}</p>

@@ -75,8 +75,7 @@
                             <th style="color:#aaa;">所属仓库</th>
                             <th style="color:#aaa;">漏洞等级</th>
                             <th style="color:#aaa;">发现时间</th>
-                            <th style="color:#aaa;">修复状态</th>
-                            <th style="color:#aaa;">审计状态</th>
+                            <th style="color:#aaa;">状态</th>
                             <th style="color:#aaa;">操作</th>
                         </tr>
                         </thead>
@@ -86,11 +85,11 @@
                                 <td>{$item['id']}</td>
                                 <td>{$item['primary_info']['FileName']}</td>
                                 <td>{$item['Category']}</td>
-                                <td>{$item['git_addr']}</td>
+                                <td><a href="{$item['git_addr']}" title="{$item['git_addr']}" target="_blank">{:parse_url($item['git_addr'],PHP_URL_PATH)}</a></td>
                                 <td>{$item['Folder']}</td>
                                 <td>{$item['create_time']}</td>
                                 <td>{$item['is_repair']}</td>
-                                <td><a class="btn btn-sm btn-light" aria-disabled="true">查看详情</a></td>
+                                <td><a class="btn btn-sm btn-light" href="{:URL('detail',['id'=>$item['id']])}" aria-disabled="true">查看详情</a></td>
                             </tr>
                         <?php } ?>
                         </tbody>

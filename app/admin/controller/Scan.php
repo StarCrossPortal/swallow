@@ -36,7 +36,20 @@ class Scan extends Common
             'page' => $page, 'param' => $request->param()
         ];
 
-        return View::fetch('report', $data);
+        return View::fetch('fortify/report', $data);
     }
 
+
+    public function detail(Request $request)
+    {
+        $id = $request->param('id');
+        $where = ['project_id' => 1, 'id' => $id];
+        $info = Db::table('fortify')->where($where)->find();
+
+        $where = ['project_id' => 1];
+        $preId = Db::table('fortify')->where($where)->where('id', '<', $id)->value('id');
+        $nextId = Db::table('fortify')->where($where)->where('id', '>', $id)->value('id');
+
+        return View::fetch('fortify/detail', ['info' => $info, 'preId' => $preId, 'nextId' => $nextId]);
+    }
 }

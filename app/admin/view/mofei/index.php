@@ -37,7 +37,7 @@
                                 <td>{$item['version']}</td>
                                 <td>{$item['license']}</td>
                                 <td>{$item['language']}</td>
-                                <td><a class="btn btn-sm btn-light" aria-disabled="true">查看详情</a></td>
+                                <td><a class="btn btn-sm btn-light" href="{:URL('comp_detail',['id'=>$item['id']])}" aria-disabled="true">查看详情</a></td>
                             </tr>
                         <?php } ?>
                         </tbody>

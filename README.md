@@ -7,7 +7,7 @@
 
 ## 安装方法
 
-1. 一键部署控制台 ` docker-compose up -d`
+1. 一键部署控制台 `wget https://gitee.com/songboy/swallow/raw/master/docker-compose.yaml && docker-compose up -d`
 2. 浏览器打开地址:`http://xx.xx.xx.xx:1890/`
 
 ## 使用方法

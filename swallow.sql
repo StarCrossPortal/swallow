@@ -7,7 +7,7 @@ CREATE TABLE `bugs` (
   `bugs` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `type` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `detail` text COLLATE utf8mb4_bin,
-  `create_time` datetime DEFAULT NULL,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
   `project_id` int(11) DEFAULT NULL,
   `audit_status` int(11) DEFAULT '0' COMMENT '-1 已忽略 0 未处理  1 已处理  ',
   `is_repair` int(11) DEFAULT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE `bugs` (
 DROP TABLE IF EXISTS `fortify`;
 CREATE TABLE `fortify` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `create_time` datetime DEFAULT NULL,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
   `project_id` int(11) DEFAULT '1',
   `Category` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `Folder` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE `git_addr` (
 DROP TABLE IF EXISTS `hema`;
 CREATE TABLE `hema` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `create_time` datetime DEFAULT NULL,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
   `type` varchar(256) COLLATE utf8mb4_bin DEFAULT NULL,
   `filename` varchar(512) COLLATE utf8mb4_bin DEFAULT NULL,
   `project_id` int(11) DEFAULT '1',
@@ -79,7 +79,7 @@ CREATE TABLE `mf_vulns` (
   `title` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `git_addr` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `is_repair` int(11) DEFAULT '0',
-  `create_time` datetime DEFAULT NULL,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
@@ -87,7 +87,7 @@ DROP TABLE IF EXISTS `murphysec`;
 CREATE TABLE `murphysec` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `project_id` int(11) DEFAULT '1',
-  `create_time` datetime DEFAULT NULL,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
   `comp_name` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `show_level` int(11) DEFAULT NULL,
   `min_fixed_version` varchar(30) COLLATE utf8mb4_bin DEFAULT NULL,
@@ -116,7 +116,7 @@ CREATE TABLE `project_conf` (
 DROP TABLE IF EXISTS `semgrep`;
 CREATE TABLE `semgrep` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `create_time` datetime DEFAULT NULL,
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
   `project_id` int(11) DEFAULT '1',
   `check_id` varchar(100) COLLATE utf8mb4_bin DEFAULT NULL,
   `end` varchar(200) COLLATE utf8mb4_bin DEFAULT NULL,

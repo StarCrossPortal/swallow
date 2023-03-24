@@ -3,7 +3,7 @@ declare (strict_types=1);
 
 namespace app\admin\controller;
 
-use app\admin\model\semgrepModel;
+use app\admin\model\SemgrepModel;
 use think\facade\Db;
 use think\facade\View;
 use think\Request;

@@ -14,7 +14,7 @@
 1. 在设置中填写蜻蜓配置,蜻蜓工作流模板为:http://qingting.starcross.cn/scenario/detail?id=2084
 2. 在设置中添加主域名
 3. 蜻蜓中点击运行工作流,或者设置工作流为周期运行
-4. 在dolphin中查看数据
+4. 在swallow中查看数据
 
 [//]: # (![]&#40;https://oss.songboy.site/blog/20230310173646.png&#41;)
 
@@ -22,7 +22,8 @@
 ## 联系我们
 
 微信:songboy8888
- 
+
+![](https://oss.songboy.site/blog/swallow.png)
  
 ## 效果图
 

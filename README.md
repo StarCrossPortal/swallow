@@ -19,6 +19,8 @@
 [//]: # (![]&#40;https://oss.songboy.site/blog/20230310173646.png&#41;)
 
 
+>注意: fortify商业版本默认不包含在swallow中,如果你已经有fortify,需要把fortify路径填写到配置里面去
+
 ## 联系我们
 
 微信:songboy8888
@@ -40,6 +42,7 @@
 
 ![](https://oss.songboy.site/blog/20230323215304.png)
 ----
+
 
 ## Stargazers over time
 

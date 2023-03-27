@@ -2,10 +2,11 @@
 <?php
 
 $qtConfDemo = '{ 
-    "mysql_db_name": "root",
-    "mysql_host": "xxxxxxx",
-    "mysql_password": "dolphin123!",
     "mysql_username": "root",
+    "mysql_db_name": "swallow",
+    "mysql_host": "xxxxxxx",
+    "mysql_port": "3306",
+    "mysql_password": "dolphin123!",
     "fortify_path": "xxxx",
     "mf_token": "xxx"
 }';

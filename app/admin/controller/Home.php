@@ -28,9 +28,9 @@ class Home extends Common
 
         $otherList = [
             ['title' => '风险类型', 'lists' =>$bugList],
-            ['title' => '组件供应', 'lists' => ['thinkPHP' => 10]],
+            ['title' => '组件供应', 'lists' => []],
             ['title' => '项目风险', 'lists' => $compList],
-            ['title' => '危险函数', 'lists' => ['exec' => 10]],
+            ['title' => '危险函数', 'lists' => []],
         ];
 
         $data = ['otherList' => $otherList];

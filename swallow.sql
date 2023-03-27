@@ -111,7 +111,7 @@ CREATE TABLE `project_conf` (
   `project_id` int(11) DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `un_key` (`project_id`,`key`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=370 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=382 DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `semgrep`;
 CREATE TABLE `semgrep` (

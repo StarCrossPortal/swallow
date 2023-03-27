@@ -8,9 +8,15 @@ $qtConfDemo = '{
     "mysql_db_name": "root",
     "mysql_host": "xxxxxxx",
     "mysql_password": "dolphin123!",
-    "mysql_port": "3306",
-    "mysql_username": "root"
+    "mysql_username": "root",
+    "fortify_path": "/data/share/fortify"
 }';
+
+$projectConf['QT_CONF'] = array_merge(json_decode($qtConfDemo,true),json_decode($projectConf['QT_CONF']??'[]',true));
+$projectConf['QT_CONF'] = json_encode($projectConf['QT_CONF']);
+$projectConf['QT_CONF'] = str_replace(",",",\n",$projectConf['QT_CONF']);
+$projectConf['QT_CONF'] = str_replace("{","{\n",$projectConf['QT_CONF']);
+$projectConf['QT_CONF'] = str_replace("}","\n}",$projectConf['QT_CONF']);
 ?>
 <style>
     a {
@@ -28,7 +34,7 @@ $qtConfDemo = '{
     <div class="col-11 tuchu" style="border-radius:5px;">
         <div style="height:24px;"></div>
         <div class="row">
-            <div class="col-4">
+            <div class="col-5">
                 <div style="border-radius:10px;border: 1px solid #ccc;padding:10px;">
                     <div style="padding:10px;">
                         <span style="color:#666;font-weight: bold;font-size: 16px;">蜻蜓引擎配置</span>
@@ -48,7 +54,7 @@ $qtConfDemo = '{
                             </div>
                             <div style="margin-bottom: 10px;">
                             <span>
-                                <textarea rows="10" class="form-control" name="QT_CONF"
+                                <textarea rows="12" class="form-control" name="QT_CONF"
                                           placeholder='全局变量参数 {"xxx":"xxx"}'>{$projectConf['QT_CONF'] ?? $qtConfDemo}</textarea>
                             </span>
                             </div>
@@ -109,18 +115,18 @@ $qtConfDemo = '{
                     </div>
                 </div>
             </div>
-            <div class="col-4" id="accordionExample">
-                <div style="border-radius:10px;border: 1px solid #ccc;padding:10px;">
-                    <div style="padding:10px;">
-                        <span style="color:#666;font-weight: bold;font-size: 16px;">Git地址配置</span>
-                        <button style="float:right;" type="button" class="btn btn-sm btn-outline-primary"
-                                data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">添加
-                        </button>
-                    </div>
-
-                </div>
-            </div>
+<!--            <div class="col-4" id="accordionExample">-->
+<!--                <div style="border-radius:10px;border: 1px solid #ccc;padding:10px;">-->
+<!--                    <div style="padding:10px;">-->
+<!--                        <span style="color:#666;font-weight: bold;font-size: 16px;">Git地址配置</span>-->
+<!--                        <button style="float:right;" type="button" class="btn btn-sm btn-outline-primary"-->
+<!--                                data-bs-toggle="modal"-->
+<!--                                data-bs-target="#exampleModal">添加-->
+<!--                        </button>-->
+<!--                    </div>-->
+<!---->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </div>
 </div>

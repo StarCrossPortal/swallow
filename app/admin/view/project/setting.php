@@ -1,22 +1,20 @@
 {include file='public/head' /}
 <?php
 
-$qtConfDemo = '{
-    "fofa_email": "xxxxxxx",
-    "fofa_token": "xxxxxxx",
-    "github_token": "xxxxxxx",
+$qtConfDemo = '{ 
     "mysql_db_name": "root",
     "mysql_host": "xxxxxxx",
     "mysql_password": "dolphin123!",
     "mysql_username": "root",
-    "fortify_path": "/data/share/fortify"
+    "fortify_path": "xxxx",
+    "mf_token": "xxx"
 }';
 
-$projectConf['QT_CONF'] = array_merge(json_decode($qtConfDemo,true),json_decode($projectConf['QT_CONF']??'[]',true));
+$projectConf['QT_CONF'] = array_merge(json_decode($qtConfDemo, true), json_decode($projectConf['QT_CONF'] ?? '[]', true));
 $projectConf['QT_CONF'] = json_encode($projectConf['QT_CONF']);
-$projectConf['QT_CONF'] = str_replace(",",",\n",$projectConf['QT_CONF']);
-$projectConf['QT_CONF'] = str_replace("{","{\n",$projectConf['QT_CONF']);
-$projectConf['QT_CONF'] = str_replace("}","\n}",$projectConf['QT_CONF']);
+$projectConf['QT_CONF'] = str_replace(",", ",\n", $projectConf['QT_CONF']);
+$projectConf['QT_CONF'] = str_replace("{", "{\n", $projectConf['QT_CONF']);
+$projectConf['QT_CONF'] = str_replace("}", "\n}", $projectConf['QT_CONF']);
 ?>
 <style>
     a {
@@ -58,11 +56,11 @@ $projectConf['QT_CONF'] = str_replace("}","\n}",$projectConf['QT_CONF']);
                                           placeholder='全局变量参数 {"xxx":"xxx"}'>{$projectConf['QT_CONF'] ?? $qtConfDemo}</textarea>
                             </span>
                             </div>
-                            <?php if(!empty($paramRet)){ ?>
-                            <div style="margin-bottom: 10px;">
-                                <span style="color:#ccc;">引擎配置保存到蜻蜓结果</span>
-                                <textarea style="color:#aaa;" rows="2" class="form-control"  disabled>{$paramRet ?? ''}</textarea>
-                            </div>
+                            <?php if (!empty($paramRet)) { ?>
+                                <div style="margin-bottom: 10px;">
+                                    <span style="color:#ccc;">引擎配置保存到蜻蜓结果</span>
+                                    <textarea style="color:#aaa;" rows="2" class="form-control" disabled>{$paramRet ?? ''}</textarea>
+                                </div>
                             <?php } ?>
                             <div style="margin-bottom: 10px;">
 
@@ -100,11 +98,11 @@ $projectConf['QT_CONF'] = str_replace("}","\n}",$projectConf['QT_CONF']);
                                     </select>
                                 </div>
                             </div>
-                            <?php if(!empty($paramRet)){ ?>
-                            <div style="margin-bottom: 10px;">
-                                <span style="color:#ccc;">周期扫描设置保存到蜻蜓结果</span>
-                                <textarea style="color:#aaa;" rows="2" class="form-control"  disabled>{$ruleRet ?? ''}</textarea>
-                            </div>
+                            <?php if (!empty($paramRet)) { ?>
+                                <div style="margin-bottom: 10px;">
+                                    <span style="color:#ccc;">周期扫描设置保存到蜻蜓结果</span>
+                                    <textarea style="color:#aaa;" rows="2" class="form-control" disabled>{$ruleRet ?? ''}</textarea>
+                                </div>
                             <?php } ?>
                             <div style="margin-bottom: 10px;">
                                 <div class="d-grid gap-2">
@@ -115,18 +113,16 @@ $projectConf['QT_CONF'] = str_replace("}","\n}",$projectConf['QT_CONF']);
                     </div>
                 </div>
             </div>
-<!--            <div class="col-4" id="accordionExample">-->
-<!--                <div style="border-radius:10px;border: 1px solid #ccc;padding:10px;">-->
-<!--                    <div style="padding:10px;">-->
-<!--                        <span style="color:#666;font-weight: bold;font-size: 16px;">Git地址配置</span>-->
-<!--                        <button style="float:right;" type="button" class="btn btn-sm btn-outline-primary"-->
-<!--                                data-bs-toggle="modal"-->
-<!--                                data-bs-target="#exampleModal">添加-->
-<!--                        </button>-->
-<!--                    </div>-->
-<!---->
-<!--                </div>-->
-<!--            </div>-->
+            <div class="col-6">
+                <div style="border-radius:10px;border: 1px solid #ccc;padding:10px;">
+                    <div style="color:#999;">
+                        <h5>配置说明</h5>
+                        <p>1. 项目不集成fortify,需要你将已有的fortify路径配置放进去</p>
+                        <p>2. SCA工具使用的是墨菲,需要你把token填进去 <a target="_blank" href="https://www.murphysec.com/usr/token">点此</a> 生成</p>
+                        <p>3. 底层使用蜻蜓开发,需要你添加节点,并克隆对应的工作流 <a target="_blank" href="http://qingting.starcross.cn/scenario/detail?id=2084">点此</a>添加</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

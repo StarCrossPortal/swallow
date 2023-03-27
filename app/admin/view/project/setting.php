@@ -52,7 +52,7 @@ $projectConf['QT_CONF'] = str_replace("}", "\n}", $projectConf['QT_CONF']);
                             </div>
                             <div style="margin-bottom: 10px;">
                             <span>
-                                <textarea rows="12" class="form-control" name="QT_CONF"
+                                <textarea rows="8" class="form-control" name="QT_CONF"
                                           placeholder='全局变量参数 {"xxx":"xxx"}'>{$projectConf['QT_CONF'] ?? $qtConfDemo}</textarea>
                             </span>
                             </div>
@@ -119,7 +119,7 @@ $projectConf['QT_CONF'] = str_replace("}", "\n}", $projectConf['QT_CONF']);
                         <h5>配置说明</h5>
                         <p>1. 项目不集成fortify,需要你将已有的fortify路径配置放进去</p>
                         <p>2. SCA工具使用的是墨菲,需要你把token填进去 <a target="_blank" href="https://www.murphysec.com/usr/token">点此</a> 生成</p>
-                        <p>3. 底层使用蜻蜓开发,需要你添加节点,并克隆对应的工作流 <a target="_blank" href="http://qingting.starcross.cn/scenario/detail?id=2084">点此</a>添加</p>
+                        <p>3. 底层使用蜻蜓开发,需要你添加节点,并克隆对应的工作流 <a target="_blank" href="http://qingting.starcross.cn/scenario/detail?id=2084">点此</a> 添加</p>
                     </div>
                 </div>
             </div>

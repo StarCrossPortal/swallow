@@ -4,10 +4,11 @@
 
 底层架构为蜻蜓编排系统,墨菲SCA,fortify,SemGrep,hema
 
+安装与使用视频教程:https://www.bilibili.com/video/BV14h411V7m5/
 
 ## 安装方法
 
-1. 一键部署控制台 `wget https://gitee.com/songboy/swallow/raw/master/docker-compose.yaml && docker-compose up -d`
+1. 一键部署控制台 `wget https://gitee.com/songboy/swallow/raw/master/docker-compose.yaml && docker-compose pull && docker-compose  up -d`
 2. 浏览器打开地址:`http://xx.xx.xx.xx:1890/`
 
 ## 使用方法

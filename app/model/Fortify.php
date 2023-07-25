@@ -24,7 +24,7 @@ class Fortify extends Model
             $ret = $obj->execTool($item, $outPath);
 
             if (empty($ret)) {
-                print_r("fortify 扫描失败:{$item['code_path']}");
+                print_r("fortify 扫描失败:{$item['code_path']}\n");
                 continue;
             }
             Db::table('fortify')->replace()->strict(false)->insertAll($ret);
@@ -44,39 +44,45 @@ class Fortify extends Model
             chmod($outPath, 0777);
         }
 
+        if (file_exists($codePath) == false) {
+            gitAddr::execTool($codeInfo);
+            echo "代码目录不存在:{$codePath} , 即将自动下载... \n";
+        }
+
         $fortifyPath = "/data/tools/fortify";
 
-        if (!file_exists($fortifyPath)) die("fortify 代码扫描器不存在:{$fortifyPath}");
+        if (!file_exists($fortifyPath)) die("fortify 代码扫描器不存在:{$fortifyPath}\n");
 
         $base = "cd {$fortifyPath}/bin && ";
         if (file_exists("{$outPath}.fpr") == false) {
             $cmd = $base . "./sourceanalyzer -b {$buildId} -clean";
-            system($cmd);
+            execLog($cmd);
             $cmd = $base . "./sourceanalyzer -b {$buildId} -Xmx4096M -Xms2048M -Xss48M     -source 1.8 -machine-output   {$codePath}";
-            system($cmd);
+            execLog($cmd);
             $cmd = $base . "./sourceanalyzer -b {$buildId} -scan -format fpr    -f {$outPath}.fpr -machine-output ";
 //        $cmd .= " -no-default-rules  -rules  {$fortifyPath}/Core/config/rules/core_php.bin";
             echo $cmd . PHP_EOL;
-            system($cmd);
+            execLog($cmd);
         } else {
-            print_r("fortify扫描文件 {$outPath}.fpr 已存在,不再重新扫描");
+            print_r("fortify扫描文件 {$outPath}.fpr 已存在,不再重新扫描\n");
         }
 
         if (file_exists("{$outPath}.xml") == false) {
             $cmd = $base . "./ReportGenerator  -format xml -f {$outPath}.xml -source {$outPath}.fpr -template DeveloperWorkbook.xml";
-            system($cmd);
+            execLog($cmd);
         }
 
         $xmlFile = "{$outPath}.xml";
 
         if (file_exists($xmlFile) === false) {
-            print_r("fortify的XML文件不存在:{$xmlFile}");
+            print_r("fortify的XML文件不存在:{$xmlFile}\n");
             return [];
         }
 
         return $this->getFortifData($xmlFile, $codeInfo['git_addr']);
 
     }
+
 
     function getFortifData($xmlPath, $git_addr)
     {

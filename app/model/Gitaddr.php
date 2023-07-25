@@ -18,14 +18,13 @@ class Gitaddr extends Model
 
         //处理数据
         foreach ($list as $val) {
-            $codePath = self::execTool($val['git_addr']);
-            $data = ['code_path' => $codePath];
-            Db::table('git_addr')->where($val)->update($data);
+            self::execTool($val);
         }
     }
 
-    public static function execTool(string $gitAddr)
+    public static function execTool(array $val)
     {
+        $gitAddr = $val['git_addr'];
 
         $path = parse_url($gitAddr, PHP_URL_PATH);
         $project_name = basename($path, ".git");
@@ -33,7 +32,12 @@ class Gitaddr extends Model
         $cmd = "cd /data/code && git clone --depth=1 {$gitAddr} $project_name";
         exec($cmd);
 
-        return "/data/code/{$project_name}";
+        $codePath = "/data/code/{$project_name}";
+
+        $data = ['code_path' => $codePath];
+        Db::table('git_addr')->where($val)->update($data);
+
+        return $codePath;
     }
 
     public static function autoDownTool()

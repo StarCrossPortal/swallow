@@ -1,23 +1,6 @@
 CREATE DATABASE swallow;
 USE swallow;
 
-DROP TABLE IF EXISTS `bugs`;
-CREATE TABLE `bugs` (
-  `id` int(11) NOT NULL,
-  `bugs` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
-  `type` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
-  `detail` text COLLATE utf8mb4_bin,
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
-  `project_id` int(11) DEFAULT NULL,
-  `audit_status` int(11) DEFAULT '0' COMMENT '-1 已忽略 0 未处理  1 已处理  ',
-  `is_repair` int(11) DEFAULT NULL,
-  `level` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
-  `tags` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
-  `git_addr` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
-  `file_name` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
-
 DROP TABLE IF EXISTS `fortify`;
 CREATE TABLE `fortify` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -42,7 +25,11 @@ CREATE TABLE `git_addr` (
   `project_id` int(11) DEFAULT '0',
   `git_addr` varchar(512) DEFAULT '',
   `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
-  `last_scan_time` datetime DEFAULT '2000-01-01 00:00:00',
+  `semgrep_scan_time` datetime DEFAULT '2000-01-01 00:00:00',
+  `mofei_scan_time` datetime DEFAULT NULL,
+  `fortify_scan_time` datetime DEFAULT NULL,
+  `hema_scan_time` datetime DEFAULT NULL,
+  `code_path` varchar(255) DEFAULT NULL COMMENT '代码存放路径',
   PRIMARY KEY (`id`),
   UNIQUE KEY `un_domain` (`git_addr`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1442 DEFAULT CHARSET=utf8mb4;
